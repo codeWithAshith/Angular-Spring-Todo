@@ -14,7 +14,20 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private auth: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log();
+    this.auth.getHelloFromSpring().subscribe({
+      next: (result: any) => {
+        console.log(result.msg);
+      },
+      error: (error: any) => {
+        console.log(error);
+      },
+      complete: () => {
+        console.log('completed');
+      },
+    });
+  }
 
   login() {
     if (

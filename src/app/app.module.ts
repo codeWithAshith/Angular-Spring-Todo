@@ -10,10 +10,19 @@ import { ErrorComponent } from './component/error/error.component';
 import { ListTodosComponent } from './component/list-todos/list-todos.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, WelcomeComponent, ErrorComponent, ListTodosComponent, NavbarComponent, FooterComponent],
-  imports: [BrowserModule, FormsModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    WelcomeComponent,
+    ErrorComponent,
+    ListTodosComponent,
+    NavbarComponent,
+    FooterComponent,
+  ],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

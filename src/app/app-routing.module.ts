@@ -4,6 +4,7 @@ import { ErrorComponent } from './component/error/error.component';
 import { ListTodosComponent } from './component/list-todos/list-todos.component';
 import { LoginComponent } from './component/login/login.component';
 import { WelcomeComponent } from './component/welcome/welcome.component';
+import { RouteGuardService } from './service/route-guard.service';
 
 const routes: Routes = [
   {
@@ -17,10 +18,12 @@ const routes: Routes = [
   {
     path: 'welcome/:name',
     component: WelcomeComponent,
+    canActivate: [RouteGuardService],
   },
   {
     path: 'todos',
     component: ListTodosComponent,
+    canActivate: [RouteGuardService],
   },
   {
     path: '**',

@@ -13,10 +13,26 @@ export class ListTodosComponent implements OnInit {
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
+    this.refreshTodos();
+  }
+
+  refreshTodos() {
     this.todoService.getAllTodos('demo').subscribe({
       next: (response: any) => {
         this.todos = response;
         console.log(response);
+      },
+      error: (error: any) => {
+        console.log(error);
+      },
+    });
+  }
+
+  deleteTodo(id: number) {
+    this.todoService.deleteTodo('demo', id).subscribe({
+      next: (response: any) => {
+        console.log(response);
+        this.refreshTodos();
       },
       error: (error: any) => {
         console.log(error);

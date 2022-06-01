@@ -1,14 +1,29 @@
-<small *ngIf="errorMessage.length > 0">{{ errorMessage }}</small>
-<div class="container">
-  <label for="username">User name</label>
-  <input
-    type="text"
-    name="username"
-    autocomplete="off"
-    [(ngModel)]="username"
-  />
-  <label for="password">Password</label>
-  <input type="password" name="password" [(ngModel)]="password" />
-
-  <button (click)="login()">Login</button>
+<div class="my-5 row justify-content-center">
+  <div class="col-4">
+    <div class="alert alert-danger" *ngIf="errorMessage.length > 0">
+      {{ errorMessage }}
+    </div>
+    <div>
+      <div class="mb-3">
+        <label for="username" class="form-label">User name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          autocomplete="off"
+          [(ngModel)]="username"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="password"
+        />
+      </div>
+      <button class="btn btn-primary" (click)="login()">Login</button>
+    </div>
+  </div>
 </div>

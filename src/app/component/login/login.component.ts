@@ -16,17 +16,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     console.log();
-    this.auth.getHelloFromSpring().subscribe({
-      next: (result: any) => {
-        console.log(result.msg);
-      },
-      error: (error: any) => {
-        console.log(error);
-      },
-      complete: () => {
-        console.log('completed');
-      },
-    });
+    
   }
 
   login() {

@@ -10,7 +10,7 @@
     <tr *ngFor="let todo of todos">
       <td>{{ todo.description }}</td>
       <td>{{ todo.targetDate | date }}</td>
-      <td>{{ todo.done }}</td>
+      <td>{{ todo.isDone }}</td>
     </tr>
   </tbody>
 </table>

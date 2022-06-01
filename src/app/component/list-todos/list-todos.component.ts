@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/model/todo';
+import { TodoService } from 'src/app/service/todo.service';
 
 @Component({
   selector: 'app-list-todos',
@@ -7,20 +8,19 @@ import { Todo } from 'src/app/model/todo';
   styleUrls: ['./list-todos.component.css'],
 })
 export class ListTodosComponent implements OnInit {
-  todos: Todo[] = [
-    {
-      description: 'Learn to dance',
-      targetDate: new Date().toString(),
-      done: false,
-    },
-    {
-      description: 'Learn to cook',
-      targetDate: new Date().toString(),
-      done: false,
-    },
-  ];
+  todos: Todo[] = [];
 
-  constructor() {}
+  constructor(private todoService: TodoService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.todoService.getAllTodos('demo').subscribe({
+      next: (response: any) => {
+        this.todos = response;
+        console.log(response);
+      },
+      error: (error: any) => {
+        console.log(error);
+      },
+    });
+  }
 }

@@ -24,8 +24,4 @@ export class AuthService {
   removeUser() {
     sessionStorage.removeItem('username');
   }
-
-  getHelloFromSpring() {
-    return this.http.get('http://localhost:9090/hello');
-  }
 }

@@ -11,6 +11,10 @@ export class TodoService {
     return this.http.get(`http://localhost:9090/users/${username}/todos`);
   }
 
+  getTodoById(username: string, id: number) {
+    return this.http.get(`http://localhost:9090/users/${username}/todos/${id}`);
+  }
+
   deleteTodo(username: string, id: number) {
     return this.http.delete(
       `http://localhost:9090/users/${username}/todos/${id}`

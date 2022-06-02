@@ -11,6 +11,7 @@ import { ListTodosComponent } from './component/list-todos/list-todos.component'
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TodoComponent } from './component/todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     ListTodosComponent,
     NavbarComponent,
     FooterComponent,
+    TodoComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],

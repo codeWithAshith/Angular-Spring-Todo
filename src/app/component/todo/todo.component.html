@@ -1,0 +1,26 @@
+<div class="row justify-content-center mt-3">
+  <div class="col-6">
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        name="description"
+        autocomplete="off"
+        [(ngModel)]="todo.description"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="targetDate" class="form-label">Target Date</label>
+      <input
+        type="date"
+        class="form-control"
+        name="targetDate"
+        autocomplete="off"
+        [ngModel]="todo.targetDate | date: 'yyyy-MM-dd'"
+        (ngModelChange)="todo.targetDate = $event"
+      />
+    </div>
+    <button class="btn btn-success" (click)="saveTodo()">Save</button>
+  </div>
+</div>

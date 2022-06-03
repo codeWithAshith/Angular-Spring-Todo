@@ -23,6 +23,13 @@ export class TodoService {
     );
   }
 
+  createTodo(username: string, id: number, todo: Todo) {
+    return this.http.post(
+      `http://localhost:9090/users/${username}/todos`,
+      todo
+    );
+  }
+
   deleteTodo(username: string, id: number) {
     return this.http.delete(
       `http://localhost:9090/users/${username}/todos/${id}`

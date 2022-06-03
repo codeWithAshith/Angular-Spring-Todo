@@ -2,6 +2,6 @@ export interface Todo {
   id: number;
   username: string;
   description: string;
-  targetDate: string;
+  targetDate: Date;
   done: boolean;
 }

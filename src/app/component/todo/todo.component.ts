@@ -12,38 +12,51 @@ export class TodoComponent implements OnInit {
   id: number = 0;
   todo: Todo = {
     id: 0,
-    username: '',
+    username: 'demo',
     description: '',
-    targetDate: new Date().toString(),
+    targetDate: new Date(),
     done: false,
   };
 
   constructor(
     private todoService: TodoService,
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this.todoService.getTodoById('demo', this.id).subscribe({
-      next: (response: any) => {
-        this.todo = response;
-      },
-      error: (error: any) => {
-        console.log(error);
-      },
-    });
+    if (this.id > 0)
+      this.todoService.getTodoById('demo', this.id).subscribe({
+        next: (response: any) => {
+          this.todo = response;
+        },
+        error: (error: any) => {
+          console.log(error);
+        },
+      });
   }
   saveTodo() {
-    this.todoService.updateTodo('demo', this.id, this.todo).subscribe({
-      next: (response: any) => {
-        this.todo = response;
-        this.router.navigate(['todos'])     
-      },
-      error: (error: any) => {
-        console.log(error);
-      },
-    });
+    if (this.id > 0)
+      this.todoService.updateTodo('demo', this.id, this.todo).subscribe({
+        next: (response: any) => {
+          this.todo = response;
+          this.router.navigate(['todos']);
+        },
+        error: (error: any) => {
+          console.log(error);
+        },
+      });
+    else {
+      this.todoService.createTodo('demo', this.id, this.todo).subscribe({
+        next: (response: any) => {
+          this.todo = response;
+          this.router.navigate(['todos']);
+        },
+        error: (error: any) => {
+          console.log(error);
+        },
+      });
+    }
   }
 }
